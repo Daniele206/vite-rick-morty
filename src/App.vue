@@ -25,13 +25,7 @@
     methods:{
       getApi(){
         console.log('get api');
-        axios.get(this.store.apiUrl, {
-          params:{
-            num: 10,
-            offset: 0,
-            language: 'it'
-          }
-        })
+        axios.get(this.store.apiUrl)
         .then(result => {
           this.store.cardList = result.data.results;
           console.log(this.store.cardList);
