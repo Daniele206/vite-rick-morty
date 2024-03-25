@@ -6,7 +6,7 @@
 
 
 <template>
-  <div class="template_debug bg-warning">
+  <div>
     Main
   </div>
 </template>

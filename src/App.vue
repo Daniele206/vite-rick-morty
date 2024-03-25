@@ -5,13 +5,11 @@
 
   import Header from './components/Header.vue';
   import Main from './components/Main.vue';
-  import Footer from './components/Footer.vue';
 
   export default {
     components:{
       Header,
       Main,
-      Footer
     },
     
   }
@@ -19,10 +17,9 @@
 
 
 <template>
-  <div>
+  <div class="bg-primary">
     <Header />
     <Main />
-    <Footer />
   </div>
 </template>
 
