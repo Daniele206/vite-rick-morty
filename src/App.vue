@@ -3,6 +3,10 @@
   import axios from 'axios';
   //axios
 
+  //store
+  import { store } from './data/store'
+  //store
+
   import Header from './components/Header.vue';
   import Main from './components/Main.vue';
 
@@ -11,6 +15,36 @@
       Header,
       Main,
     },
+
+    data(){
+      return{
+        store
+      }
+    },
+
+    methods:{
+      getApi(){
+        console.log('get api');
+        axios.get(this.store.apiUrl, {
+          params:{
+            num: 10,
+            offset: 0,
+            language: 'it'
+          }
+        })
+        .then(result => {
+          this.store.cardList = result.data.results;
+          console.log(this.store.cardList);
+        })
+        .catch(error => {
+          console.log(error);
+        })
+      }
+    },
+
+    mounted(){
+      this.getApi()
+    }
     
   }
 </script>
