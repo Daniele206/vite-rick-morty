@@ -10,6 +10,7 @@
 
     methods:{
       searchByName(){
+        this.store.respParams.page = 1;
         this.$emit('nameSearch')
       }
     }

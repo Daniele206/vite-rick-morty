@@ -9,11 +9,13 @@
 
   import Header from './components/Header.vue';
   import Main from './components/Main.vue';
+  import Paginator from './components/partials/Paginator.vue';
 
   export default {
     components:{
       Header,
       Main,
+      Paginator
     },
 
     data(){
@@ -24,11 +26,11 @@
 
     methods:{
       getApi(){
-        console.log('get api');
         axios.get(this.store.apiUrl, {
           params: this.store.respParams
         })
         .then(result => {
+          this.store.respParams.totalPage = result.data.info.pages
           this.store.cardList = result.data.results;
           console.log(this.store.cardList);
         })
@@ -50,6 +52,7 @@
   <div class="bg-primary">
     <Header @nameSearch="getApi()" />
     <Main />
+    <Paginator @swapPage="getApi()" />
   </div>
 </template>
 
