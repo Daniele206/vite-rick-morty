@@ -50,7 +50,7 @@
 
 <template>
   <div class="bg-primary">
-    <Header @nameSearch="getApi()" />
+    <Header @nameSearch="getApi()" @statusSearch="getApi()" @reset="getApi()"/>
     <Main />
     <Paginator @swapPage="getApi()" />
   </div>

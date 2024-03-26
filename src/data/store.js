@@ -5,6 +5,7 @@ export const store = reactive({
   cardList: [],
   respParams:{
     name: '',
+    status: '',
     page: '1',
     totalPage: '0',
   }
