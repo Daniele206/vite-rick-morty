@@ -1,5 +1,18 @@
 <script>
+  import { store } from '../data/store';
+
   export default {
+    data(){
+      return{
+        store
+      }
+    },
+
+    methods:{
+      searchByName(){
+        this.$emit('nameSearch')
+      }
+    }
     
   }
 </script>
@@ -11,7 +24,7 @@
     <div class="d-center">
       <div class="d-flex w-50 py-5">
         <div class="input-group mx-1">
-          <input type="text" class="form-control" placeholder="Search Character" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <input v-model="store.respParams.name" @keyup.enter="searchByName" type="text" class="form-control" placeholder="Search Character" aria-label="Recipient's username" aria-describedby="button-addon2">
         </div>
         <select class="form-select mx-1 w-50" aria-label="Default select example">
           <option selected>Select status</option>

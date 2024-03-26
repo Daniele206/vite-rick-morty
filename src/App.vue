@@ -25,7 +25,9 @@
     methods:{
       getApi(){
         console.log('get api');
-        axios.get(this.store.apiUrl)
+        axios.get(this.store.apiUrl, {
+          params: this.store.respParams
+        })
         .then(result => {
           this.store.cardList = result.data.results;
           console.log(this.store.cardList);
@@ -46,7 +48,7 @@
 
 <template>
   <div class="bg-primary">
-    <Header />
+    <Header @nameSearch="getApi()" />
     <Main />
   </div>
 </template>
